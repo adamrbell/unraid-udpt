@@ -9,12 +9,13 @@ RUN apt-get update -q && \
 apt-get install $APTLIST -qy && \
 
 # cleanup
-apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* &&\
+apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* && \
 
 #Adding Custom files
 mkdir /config
-   
+ADD udpt.conf /config/udpt.conf
+
 # Volumes and Ports
 VOLUME /config 
 EXPOSE 6969
-EXEC ["./udpt -c /udpt.conf"]
+EXEC ["./udpt -c config/udpt.conf"]
