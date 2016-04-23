@@ -8,6 +8,11 @@ ENV APTLIST=" gcc g++ make libsqlite3-dev git"
 RUN apt-get update -q && \
 apt-get install $APTLIST -qy && \
 
+#Build udpt
+git clone https://github.com/naim94a/udpt.git && \
+cd udpt && \
+make && \
+
 # cleanup
 apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* && \
 
