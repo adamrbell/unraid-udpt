@@ -1,6 +1,6 @@
 FROM linuxserver/baseimage
 
-MAINTAINER 
+MAINTAINER Adam (email@adamrbell.com)
 
 ENV APTLIST=" gcc g++ make libsqlite3-dev git"
 
