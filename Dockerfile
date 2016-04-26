@@ -17,9 +17,9 @@ make
 RUN apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 #Adding Custom files
-ADD udpt.conf /config/udpt.conf
+ADD udpt.conf /udpt/udpt.conf
 
 # Volumes and Ports
 VOLUME /config 
 EXPOSE 6969
-RUN /udpt/udpt -d  /config/udpt.log /config/udpt.conf
+RUN /udpt/udpt -d  /udpt/udpt.log /udpt/udpt.conf
