@@ -2,14 +2,14 @@ FROM linuxserver/baseimage
 
 MAINTAINER Adam (email@adamrbell.com)
 
-ENV APTLIST=" gcc g++ make libsqlite3-dev git"
+ENV APTLIST=" git build-essential libpthread-stubs0-dev libsqlite3-dev"
 
 # install packages
 RUN apt-get update -q && \
 apt-get install $APTLIST -qy
 
 #Build udpt
-RUN git clone https://github.com/naim94a/udpt.git && \
+RUN git clone https://github.com/cuttius1/udpt.git && \
 cd udpt && \
 make
 
@@ -17,10 +17,9 @@ make
 RUN apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 #Adding Custom files
-RUN mkdir /config
 ADD udpt.conf /config/udpt.conf
 
 # Volumes and Ports
 VOLUME /config 
 EXPOSE 6969
-EXEC ["./udpt -c config/udpt.conf"]
+EXEC ["./udpt -d  /config/udpt.log /config/udpt.conf"]
