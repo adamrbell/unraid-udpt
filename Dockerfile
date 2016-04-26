@@ -2,7 +2,7 @@ FROM linuxserver/baseimage
 
 MAINTAINER Adam (email@adamrbell.com)
 
-ENV APTLIST=" git build-essential libpthread-stubs0-dev libsqlite3-dev"
+ENV APTLIST="git build-essential libpthread-stubs0-dev libsqlite3-dev"
 
 # install packages
 RUN apt-get update -q && \
@@ -22,4 +22,4 @@ ADD udpt.conf /config/udpt.conf
 # Volumes and Ports
 VOLUME /config 
 EXPOSE 6969
-CMD ["./udpt -d  /config/udpt.log /config/udpt.conf"]
+CMD ["/udpt/udpt -d  /config/udpt.log /config/udpt.conf"]
