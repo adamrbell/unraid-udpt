@@ -22,4 +22,4 @@ ADD udpt.conf /config/udpt.conf
 # Volumes and Ports
 VOLUME /config 
 EXPOSE 6969
-EXEC ["./udpt -d  /config/udpt.log /config/udpt.conf"]
+CMD ["./udpt -d  /config/udpt.log /config/udpt.conf"]
